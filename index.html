@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo">this is first content</p>
+    <button type="submit" id="sub" onclick="mydoc()">
+      get the other content
+    </button>
+    <script>
+      const mydoc = () => {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = () => {
+          if (readystate == 4 && status == 200) {
+            document.getElementById("demo").innerHTML = xhttp.responseText;
+          }
+        };
+        xhttp.open("POST", "name.txt", true);
+        xhttp.send();
+      };
+    </script>
+  </body>
+</html>
